@@ -7,16 +7,26 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  <%
-     int i = 5;
-     for(int a = 0; i<a ; a++ ){
-         out.println("Hello World");
-     }
-  %>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Plugin tester</title>
+</head>
 
-  </body>
+<body>
+<h1>Приветсвтие пользователя</h1>
+<form action = "servlet0" method = "GET">
+    <table border = "0">
+
+        <tr>
+            <td><b>Назовите имя </b></td>
+            <td><input type = "text" name = "Введите имя"
+                        size = "70"/></td>
+        </tr>
+
+        <tr>
+            <td colspan = "2"><input type = "submit" value = "Поприветствовать"/></td>
+        </tr>
+    </table>
+</form>
+</body>
 </html>
