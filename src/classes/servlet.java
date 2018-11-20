@@ -32,8 +32,9 @@ public class servlet  extends HttpServlet {
         Enumeration en = request.getParameterNames();
         while(en.hasMoreElements()) {
             // Get the name of the request parameter
-            String name = (String)en.nextElement();
-            out.println("hello " + name);
+            String pname = (String)en.nextElement();
+            String pvalue = request.getParameter(pname);
+            out.println("hello " + pname+"="+pvalue);
         }
         out.close();
     }

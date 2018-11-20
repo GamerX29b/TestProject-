@@ -14,13 +14,13 @@
 
 <body>
 <h1>Приветсвтие пользователя</h1>
-<form action = "servlet0" method = "GET">
+<form action = "servlet0" method = "POST">
     <table border = "0">
 
         <tr>
             <td><b>Назовите имя </b></td>
-            <td><input type = "text" name = "Введите имя"
-                        size = "70"/></td>
+            <td><input type = "text" name = "parametr0"
+                       value = "two" size = "70"/></td>
         </tr>
 
         <tr>
