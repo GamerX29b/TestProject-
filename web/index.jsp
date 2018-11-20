@@ -6,22 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-      <!--
-
-            String str = "SayYouName";
-
-            Cookie name = new Cookie("name", str);
-            Cookie url = new Cookie("url",
-                    request.getParameter("url"));
-
-            name.setMaxAge(60*60*24);
-            url.setMaxAge(60*60*24);
-
-            response.addCookie( name );
-            response.addCookie( url );
-        %> -->
-
-
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -36,8 +20,17 @@
         <tr>
             <td><b>Назовите имя </b></td>
             <td><input type = "text" name = "parametr0"
+                       value = "Zero" size = "70"/></td>
+        </tr>
+        <tr>
+            <td><b>Назовите фамилию </b></td>
+            <td><input type = "text" name = "parametr1"
+                       value = "one" size = "70"/></td>
+        </tr>
+        <tr>
+            <td><b>Назовите отчество </b></td>
+            <td><input type = "text" name = "parametr2"
                        value = "two" size = "70"/></td>
-
         </tr>
 
         <tr>
@@ -48,6 +41,7 @@
         </tr>
     </table>
 </form>
+
 <%
     Cookie cookie = null;
     Cookie[] cookies = null;
@@ -59,7 +53,7 @@
             cookie = cookies[i];
 
            if ((cookie.getName()).equals("name")){
-                out.print("А раньше тебя звали " + cookie.getValue());
+                out.print("Я знаю тебя как " + cookie.getValue());
             }
         }
     }else{
@@ -67,7 +61,6 @@
     }
 %>
 
-
-
+<a href="TwoTable.jsp">Да, это я.</a>
 </body>
 </html>
