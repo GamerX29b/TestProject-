@@ -61,7 +61,6 @@
            if ((cookie.getName()).equals("name")){
                 out.print("А раньше тебя звали " + cookie.getValue());
             }
-
         }
     }else{
         out.println("<h2>нет Cookie</h2>");
