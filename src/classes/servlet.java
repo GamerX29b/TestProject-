@@ -27,13 +27,13 @@ public class servlet  extends HttpServlet {
 
         // Get the values of all request parameters
         Enumeration en = request.getParameterNames();
-        String pname = (String)en.nextElement();
         out.print("hello ");
         while(en.hasMoreElements()) {
             // Get the name of the request parameter
-
+            String pname = (String)en.nextElement();
             String pvalue = request.getParameter(pname);
             out.print(  pvalue + " ");
+
 
             Cookie name = new Cookie("name", pvalue);
             name.setMaxAge(60*60*24);
