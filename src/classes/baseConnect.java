@@ -16,7 +16,7 @@ public static class TestClass { */
         int code = 0;
 
         String Inserts = " ";
-        Statement stmt = null;
+
         try {
             Class.forName ("org.h2.Driver");
         }
@@ -25,12 +25,10 @@ public static class TestClass { */
             System.out.println(ex.toString());
         }
 
-        try {
-
-            Connection conn = DriverManager.getConnection("jdbc:h2:~/Base;", "sa", "");
-
-            stmt = conn.createStatement();
-
+        try(
+                Connection conn = DriverManager.getConnection("jdbc:h2:~/Base;", "sa", "");
+                Statement stmt = conn.createStatement();
+        ) {
             /*Inserts = "CREATE TABLE Full_info (info_id int NOT NULL, name varchar(40), surname varchar(40), " +
                     "patronymic varchar(40), PRIMARY KEY (info_id));";
             System.out.println(Inserts);
@@ -40,12 +38,12 @@ public static class TestClass { */
                     " VALUES ( " + id + ", '" + name + "', '" + surname + "', '" + patronymic + "');");
             stmt.executeUpdate(Inserts);
 
+            conn.commit();
             conn.close();
             code = 1;
 
         } catch (SQLException sqle) {
             System.out.println(sqle);
-
             code = 0;
         }
 

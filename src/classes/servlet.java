@@ -29,10 +29,11 @@ public class servlet  extends HttpServlet {
         Enumeration en = request.getParameterNames();
         out.print("hello ");
         int i = 0;
-        String names = new String();
-        String surname = new String();
-        String patronymic = new String();
+        String names = request.getParameter("parametr0");
+        String surname = request.getParameter("parametr1");
+        String patronymic = request.getParameter("parametr2");
 
+/*
         while(en.hasMoreElements()) {
             i++;
             String pname = (String) en.nextElement();
@@ -44,6 +45,7 @@ public class servlet  extends HttpServlet {
                 case 3: surname = pvalue; break;
 
         }}
+  */
             Random random = new Random();
             int id = random.nextInt();
 
