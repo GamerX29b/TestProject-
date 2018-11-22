@@ -48,7 +48,7 @@ public class LogFilter implements Filter {
                 for (int i = 0; i < cookies.length; i++){
                     cookie = cookies[i];
 
-                   if ((cookie.getName()).equals("name")){
+                   if ((cookie.getName()).equals("Name")){
                         chain.doFilter(request, response);                 //проверяем наличие куки под названием name
                         break;
                      }else{

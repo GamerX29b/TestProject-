@@ -22,7 +22,7 @@
     for (int i = 0; i < cookies.length; i++){
     cookie = cookies[i];
 
-    if ((cookie.getName()).equals("name")){
+    if ((cookie.getName()).equals("Name")){
     out.print("Hello " + cookie.getValue());
     }
     }

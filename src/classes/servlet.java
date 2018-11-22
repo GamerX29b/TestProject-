@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Cookie;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Random;
+
 import java.util.Enumeration;
 
 public class servlet  extends HttpServlet {
@@ -16,9 +18,7 @@ public class servlet  extends HttpServlet {
         this.process(request, response);
     }
 
-    /*
-       generate the page showing all the request parameters
-     */
+
     private void process(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setStatus(200);
 
@@ -28,17 +28,32 @@ public class servlet  extends HttpServlet {
         // Get the values of all request parameters
         Enumeration en = request.getParameterNames();
         out.print("hello ");
+        int i = 0;
+        String names = new String();
+        String surname = new String();
+        String patronymic = new String();
+
         while(en.hasMoreElements()) {
-            // Get the name of the request parameter
-            String pname = (String)en.nextElement();
+            i++;
+            String pname = (String) en.nextElement();
             String pvalue = request.getParameter(pname);
-            out.print(  pvalue + " ");
 
+            switch (i){
+                case 1: patronymic = pvalue; break;
+                case 2: names = pvalue; break;
+                case 3: surname = pvalue; break;
 
-            Cookie name = new Cookie("name", pvalue);
+        }}
+            Random random = new Random();
+            int id = random.nextInt();
+
+            out.print(names + " " + surname + " " + patronymic);
+            out.println(baseConnect.InsertDBO(id ,names,surname,patronymic));
+
+            Cookie name = new Cookie("Name", names);
             name.setMaxAge(60*60*24);
             response.addCookie( name );
-        }
+
         out.close();
     }
 }

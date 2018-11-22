@@ -43,7 +43,7 @@ public class Log2Filter implements Filter {
 
     private void logToFile(String fileName) {
         // Записать log в file..
-        System.out.println("Запись данных в логи" + fileName);
+        System.out.println("Запись данных в логи " + fileName);
     }
 
 }

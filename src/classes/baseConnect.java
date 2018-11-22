@@ -2,27 +2,43 @@ package classes;
 import java.sql.*;
 
 public class baseConnect {
-
-public static void main (String args[]) {
+/*
+ public static void main (String args[]) {
     int code = 0;
-    code = TestClass.InsertDBO(2,"Petr","Petrov","Petrovich");
+    code = TestClass.InsertDBO(5,"Petr","Petrov","Petrovich");
     System.out.println(code);
 }
 
-public static class TestClass {
+public static class TestClass { */
 
 
     public static int InsertDBO (int id, String name, String surname, String patronymic){
         int code = 0;
-        Connection dbConnection = null;
-        Statement statement = null;
+
+        String Inserts = " ";
+        Statement stmt = null;
+        try {
+            Class.forName ("org.h2.Driver");
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex.toString());
+        }
 
         try {
-            Connection conn = DriverManager.getConnection("jdbc:h2:~/TestBase", "sa", "");
 
-            String Inserts = ("INSERT INTO Full_info (INFO_ID, NAME, SURNAME, PATRONYMIC ) " +
+            Connection conn = DriverManager.getConnection("jdbc:h2:~/Base;", "sa", "");
+
+            stmt = conn.createStatement();
+
+            /*Inserts = "CREATE TABLE Full_info (info_id int NOT NULL, name varchar(40), surname varchar(40), " +
+                    "patronymic varchar(40), PRIMARY KEY (info_id));";
+            System.out.println(Inserts);
+            stmt.executeUpdate(Inserts); */
+
+            Inserts = ("INSERT INTO Full_info (INFO_ID, NAME, SURNAME, PATRONYMIC ) " +
                     " VALUES ( " + id + ", '" + name + "', '" + surname + "', '" + patronymic + "');");
-            statement.execute(Inserts);
+            stmt.executeUpdate(Inserts);
 
             conn.close();
             code = 1;
@@ -34,7 +50,10 @@ public static class TestClass {
         }
 
         return (code);
-    }
+   // }
+       /* public static int PullDBO {
+
+        }*/
 }
 }
 

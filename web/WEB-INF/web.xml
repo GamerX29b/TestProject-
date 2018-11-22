@@ -16,8 +16,6 @@
         </servlet-mapping>
 
 
-
-
         <filter>
             <filter-name>logFilter</filter-name>
             <filter-class>classes.LogFilter</filter-class>
