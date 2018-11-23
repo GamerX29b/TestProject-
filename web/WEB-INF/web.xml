@@ -16,14 +16,14 @@
         </servlet-mapping>
 
 
-        <filter>
+   <!--     <filter>
             <filter-name>logFilter</filter-name>
             <filter-class>classes.LogFilter</filter-class>
         </filter>
         <filter-mapping>
             <filter-name>logFilter</filter-name>
             <url-pattern>/TwoTable.jsp</url-pattern>
-        </filter-mapping>
+        </filter-mapping> -->
 
         <filter>
             <filter-name>log2Filter</filter-name>

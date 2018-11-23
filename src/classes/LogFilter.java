@@ -31,23 +31,14 @@ public class LogFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-
-
         HttpServletRequest req = (HttpServletRequest) request;
-
-
         String servletPath = req.getServletPath();
-
         System.out.println("#INFO " + new Date() + " - ServletPath :" + servletPath //
                 + ", URL =" + req.getRequestURL());
-
             Cookie cookie = null;
-
             Cookie[] cookies = ((HttpServletRequest) request).getCookies();
-
                 for (int i = 0; i < cookies.length; i++){
                     cookie = cookies[i];
-
                    if ((cookie.getName()).equals("Name")){
                         chain.doFilter(request, response);                 //проверяем наличие куки под названием name
                         break;
@@ -56,7 +47,4 @@ public class LogFilter implements Filter {
              resp.sendRedirect( "/hte");
                           }
                       }
-
-
-
 }}
