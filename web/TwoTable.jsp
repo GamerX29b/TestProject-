@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
+<%@ page import = "javax.servlet.http.*,javax.servlet.*,oracle.jdbc.driver.*" %>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
@@ -35,11 +35,11 @@
 %>
 </head>
 <body>
-<sql:setDataSource var = "Base" driver = "org.h2.Driver"
-                   url = "jdbc:h2:~/Base"
-                   user = "sa"  password = ""/>
+<sql:setDataSource var = "Base" driver = "oracle.jdbc.driver.OracleDriver"
+                   url = "jdbc:oracle:thin:@192.168.126.50:1521:fkszdb"
+                   user = "WIDGET_Z"  password = "WIDGET_Z"/>
 
-<sql:query dataSource = "${Base}" sql = "select * from Full_info;" var = "result">
+<sql:query dataSource = "${Base}" sql = "select * from all_tables" var = "result">
 
 </sql:query>
 
@@ -53,10 +53,8 @@
 
     <c:forEach var = "row" items = "${result.rows}">
         <tr>
-            <td> <c:out value = "${row.info_id}"/></td>
-            <td> <c:out value = "${row.name}"/></td>
-            <td> <c:out value = "${row.surname}"/></td>
-            <td> <c:out value = "${row.patronymic}"/></td>
+            <td> <c:out value = "${row.owner}"/></td>
+            <td> <c:out value = "${row.table_name}"/></td>
         </tr>
     </c:forEach>
 </table>

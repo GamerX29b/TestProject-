@@ -33,19 +33,7 @@ public class servlet  extends HttpServlet {
         String surname = request.getParameter("parametr1");
         String patronymic = request.getParameter("parametr2");
 
-/*
-        while(en.hasMoreElements()) {
-            i++;
-            String pname = (String) en.nextElement();
-            String pvalue = request.getParameter(pname);
 
-            switch (i){
-                case 1: patronymic = pvalue; break;
-                case 2: names = pvalue; break;
-                case 3: surname = pvalue; break;
-
-        }}
-  */
             Random random = new Random();
             int id = random.nextInt();
 

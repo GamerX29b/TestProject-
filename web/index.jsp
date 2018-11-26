@@ -36,9 +36,7 @@
         <tr>
             <td colspan = "2"><input type = "submit" value = "Поприветствовать"/></td>
         </tr>
-        <tr>
 
-        </tr>
     </table>
 </form>
 

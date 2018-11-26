@@ -5,6 +5,7 @@
          version="4.0">
 
         <display-name>Archetype Created Web Application</display-name>
+        <!-- Сервлет-->
 
         <servlet>
             <servlet-name>servlet</servlet-name>
@@ -14,6 +15,7 @@
             <servlet-name>servlet</servlet-name>
             <url-pattern>/servlet0</url-pattern>
         </servlet-mapping>
+        <!-- Фильтр -->
 
         <filter>
             <filter-name>log2Filter</filter-name>
@@ -23,11 +25,27 @@
                 <param-value>AppLog.log</param-value>
             </init-param>
         </filter>
-
         <filter-mapping>
             <filter-name>log2Filter</filter-name>
             <url-pattern>/*</url-pattern>
         </filter-mapping>
+        <!-- Спринговый сервлет
+
+        <servlet>
+            <servlet-name>HelloController</servlet-name>
+            <servlet-class>
+                org.springframework.web.servlet.DispatcherServlet
+            </servlet-class>
+            <load-on-startup>1</load-on-startup>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>HelloController</servlet-name>
+            <url-pattern>*.jsp</url-pattern>
+        </servlet-mapping>        <context-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/HelloWeb-servlet.xml</param-value>
+        </context-param>-->
+
 
 
 
