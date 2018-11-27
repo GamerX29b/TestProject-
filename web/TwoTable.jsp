@@ -35,13 +35,15 @@
 %>
 </head>
 <body>
-<sql:setDataSource var = "Base" driver = "oracle.jdbc.driver.OracleDriver"
-                   url = "jdbc:oracle:thin:@192.168.126.50:1521:fkszdb"
-                   user = "WIDGET_Z"  password = "WIDGET_Z"/>
 
-<sql:query dataSource = "${Base}" sql = "select * from all_tables" var = "result">
 
-</sql:query>
+    <jsp:useBean id="SpringJDB" class="spring.SpringJDB" scope="session">
+        results
+    </jsp:useBean>
+    <sql:query dataSource = "${dataSource}" sql = "select * from all_tables" var = "result">
+
+    </sql:query>
+
 
 <table border = "1" width = "100%">
     <tr>
